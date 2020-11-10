@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body 
+    class="bg-red-300"
+    :class="{'overflow-hidden': openSidebar === true}"
+    x-data="{openSidebar: false, openNav: false}" >
+    
+
+    <div class="flex">
+        
+        <!-- screen overflow -->
+        <div x-show="openSidebar" @click="openSidebar = false" class="fixed top-0 left-0 w-full h-full lg:hidden bg-black opacity-50 cursor-pointer"></div>
+
+        
+
+        <!-- sidebar -->
+        <div 
+            :class="openSidebar ? 'flex' : 'hidden'"
+            class="fixed lg:relative min-h-screen max-h-screen w-64 lg:flex flex-col justify-between bg-white lg:border-r  overflow-auto p-1">
+            
+
+            <div class="flex items-center justify-center py-10">
+                <h1 class="text-xl font-semibold uppercase tracking-widest text-gray-800">App Title</h1>
+            </div>
+
+
+            <nav class="flex-1 text-gray-700">
+
+                <a 
+                    class="flex items-center bg-gray-200 border-l-4 border-gray-600 focus:outline-none focus:shadow-outline my-1 px-6 py-3"
+                    href="#">
+                    
+                    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 11H5M19 11C20.1046 11 21 11.8954 21 13V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V13C3 11.8954 3.89543 11 5 11M19 11V9C19 7.89543 18.1046 7 17 7M5 11V9C5 7.89543 5.89543 7 7 7M7 7V5C7 3.89543 7.89543 3 9 3H15C16.1046 3 17 3.89543 17 5V7M7 7H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="ml-3 font-semibold">Dashboard</span>
+
+                </a>
+
+                <a 
+                    class="flex items-center border-l-4 border-white hover:bg-gray-200 focus:outline-none focus:shadow-outline hover:text-gray-700 hover:border-gray-700 my-1 px-6 py-3"
+                    href="#">
+                    
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="ml-3 font-semibold">Accounts</span>
+
+                </a>
+
+                <a 
+                    class="flex items-center border-l-4 border-white hover:bg-gray-200 focus:outline-none focus:shadow-outline hover:text-gray-700 hover:border-gray-700 my-1 px-6 py-3"
+                    href="#">
+                    
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                    </svg>
+                    <span class="ml-3 font-semibold">Settings</span>
+
+                </a>
+
+                <a
+                    class="flex items-center border-l-4 border-white hover:bg-gray-200 focus:outline-none focus:shadow-outline hover:text-gray-700 hover:border-gray-700 my-1 px-6 py-3"
+                    href="#">
+                    
+                    <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                    </svg>
+                    <span class="ml-3 font-semibold">Settings</span>
+
+                </a>
+
+            </nav>
+
+
+
+            <a 
+                class="flex items-center bg-gray-100 border-t focus:outline-none focus:shadow-outline px-6 py-3"
+                href="">
+
+                <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18.36 6.64a9 9 0 11-12.73 0M12 2v10"/>
+                </svg>
+                <span class="ml-3 font-semibold">Logout</span>
+
+            </a>
+
+        </div>
+        <!-- end of sidebar -->
+
+
+
+        <div class="flex-1">
+
+            <div class="flex flex-col h-screen bg-white">
+                
+                
+                <!-- navigation bar -->
+                <div class="w-full bg-white text-gray-800 border-b px-6 py-2">
+
+                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                
+                        <div class="flex items-center justify-between lg:justify-end w-full">
+                            
+                            <button class="lg:hidden rounded-xl focus:outline-none focus:shadow-outline" @click="openSidebar = true">
+                                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 9.5H3m18-5H3m18 10H3m14 5H3"/></svg>
+                            </button>
+                            
+                            
+                            <div class="relative" x-data="{open: false}" @click.away="open = false">
+                
+                                <button class="flex items-center font-semibold rounded-xl focus:outline-none focus:shadow-outline px-3 py-2" @click="open = !open">
+                                    <span class="mr-3">User Name</span>
+                                    <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+                                </button>
+                
+                                <div 
+                                    class="absolute right-0 w-64 mt-2 origin-top-right bg-white font-semibold rounded-xl border shadow-xl p-1" 
+                                    x-show.transition="open">
+                                    
+                                    <a class="block hover:bg-gray-200 rounded-t-xl px-4 py-3" href="">
+                                        Dashboard
+                                    </a>
+                
+                                    <hr>
+                
+                                    <a class="block hover:bg-gray-200 rounded-b-xl px-4 py-3" href="">
+                                        Logout
+                                    </a>
+                
+                                </div>
+                
+                            </div>
+                
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- end of navigation bar -->
+                
+
+
+                <!-- content area -->
+                <div class="overflow-auto h-full bg-gray-200">
+    
+                    <div class="max-w-screen-lg mx-auto p-6">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis itaque, debitis quia ipsa inventore natus cupiditate tenetur, omnis illum, ipsum alias? Ad soluta voluptates earum ea consequatur natus nam aperiam.</p>
+                    </div>
+    
+                </div>
+                <!-- end of content area -->
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <script type="module" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine-ie11.min.js" defer></script>
+</body>
+</html>
